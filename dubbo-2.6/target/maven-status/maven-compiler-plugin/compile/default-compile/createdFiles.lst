@@ -1,0 +1,4 @@
+com/ant/provider/HelloServiceImpl.class
+com/ant/api/HelloService.class
+com/ant/consumer/Consumer.class
+com/ant/provider/Provider.class
