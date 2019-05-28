@@ -3,6 +3,8 @@ package com.ant.consumer;
 import com.ant.api.HelloService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @ClassName Consumer
  * @Description Consumer
@@ -18,12 +20,19 @@ public class Consumer {
         context.start();
 
 
-        HelloService bean = context.getBean("helloService", HelloService.class);
-        for (int i = 0; i < 5; i++) {
+        HelloService helloService = context.getBean("helloService", HelloService.class);
 
-            String userName = bean.sayHello("ant");
-            System.out.println(userName);
-//            Thread.sleep(100L);
+        for (int i = 0; i < 500; i++) {
+
+            try {
+                String userName = helloService.sayHello("ant");
+                System.out.println(userName);
+
+                TimeUnit.SECONDS.sleep(1);
+            }catch (Exception e){
+                System.out.println("报错了.....");
+            }
+
         }
 
     }

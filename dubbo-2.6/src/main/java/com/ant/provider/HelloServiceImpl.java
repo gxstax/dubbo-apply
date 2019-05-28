@@ -22,14 +22,14 @@ public class HelloServiceImpl implements HelloService {
 
 
         System.out.println("调用了");
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.SECONDS.sleep(5);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
-        return "hello" + userName +
-                String.format("protocol is %s, address is %s", url.getProtocol(), url.getAddress());
+        return "hello : " + userName +
+                String.format("\nprotocol is %s, address is %s", url.getProtocol(), url.getAddress());
 
 //        return "Hello " + userName;
     }

@@ -6,8 +6,11 @@
     <dubbo:application name="consumer" logger="log4j"/>
     <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
 
-    <dubbo:reference id="helloService" check="false" interface="com.ant.api.HelloService" loadbalance="roundrobin"/>
+    //
+    <dubbo:monitor address="127.0.0.1:7070" />
 
-    <!--<dubbo:reference id="helloService" check="false" interface="com.ant.api.HelloService" loadbalance="roundrobin"-->
-                     <!--cluster="failover" retries="2"/>-->
+    <!--<dubbo:reference id="helloService" check="false" interface="com.ant.api.HelloService" loadbalance="roundrobin"/>-->
+
+    <dubbo:reference id="helloService" check="false" interface="com.ant.api.HelloService" loadbalance="roundrobin"
+                     cluster="failfast" retries="2"/>
 </beans>
